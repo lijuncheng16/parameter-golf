@@ -1,0 +1,2 @@
+sweep_id	cell_id	description	seed	run_id	status	pre_quant_bpb	quant_bpb	ttt_bpb	artifact_bytes	overrides
+20260428_112850	P0	compile ON (baseline trace)	42	20260428_112850-P0-s42-f59baa41	OK		1.07639640	1.06276309	16903602	DIAG_COMPILE_TRACE=1

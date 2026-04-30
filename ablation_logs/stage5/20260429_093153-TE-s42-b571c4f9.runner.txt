@@ -1,0 +1,808 @@
+W0429 09:53:55.794000 2650880 torch/distributed/run.py:803] 
+W0429 09:53:55.794000 2650880 torch/distributed/run.py:803] *****************************************
+W0429 09:53:55.794000 2650880 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0429 09:53:55.794000 2650880 torch/distributed/run.py:803] *****************************************
+Hyperparameters:
+  adam_eps: 1e-08
+  adam_wd: 0.02
+  artifact_dir: 
+  attn_clip_sigmas: 13.0
+  attn_out_gate_enabled: False
+  attn_out_gate_src: proj
+  beta1: 0.9
+  beta2: 0.95
+  caseops_enabled: False
+  compressor: brotli
+  data_dir: ./data/
+  datasets_dir: ./data/datasets/fineweb10B_billy_cap_inverse_freq_p100
+  distributed: True
+  ema_decay: 0.9965
+  embed_bits: 7
+  embed_clip_sigmas: 15.0
+  embed_lr: 0.6
+  embed_wd: 0.085
+  enable_looping_at: 0.35
+  eval_seq_len: 2048
+  eval_stride: 64
+  fused_ce_enabled: True
+  gate_window: 12
+  gated_attn_enabled: False
+  gated_attn_init_std: 0.01
+  gated_attn_quant_gate: False
+  global_ttt_batch_seqs: 32
+  global_ttt_chunk_tokens: 32768
+  global_ttt_epochs: 1
+  global_ttt_grad_clip: 1.0
+  global_ttt_lr: 0.001
+  global_ttt_momentum: 0.9
+  global_ttt_respect_doc_boundaries: True
+  global_ttt_warmup_chunks: 0
+  global_ttt_warmup_start_lr: 0.0
+  gptq_calibration_batches: 16
+  gptq_reserve_seconds: 0.5
+  grad_accum_steps: 1
+  grad_clip_norm: 0.3
+  is_main_process: True
+  iterations: 20000
+  ln_scale: True
+  load_model_path: models/20260429_093153-TE-s42-b571c4f9.pt
+  local_rank: 0
+  logfile: logs/20260429_093153-TE-s42-b571c4f9.txt
+  logit_softcap: 30.0
+  loop_end: 5
+  loop_start: 3
+  lqer_asym_enabled: True
+  lqer_asym_group: 64
+  lqer_enabled: True
+  lqer_factor_bits: 4
+  lqer_rank: 4
+  lqer_top_k: 3
+  matrix_bits: 6
+  matrix_clip_sigmas: 12.85
+  matrix_lr: 0.026
+  max_wallclock_seconds: 600.0
+  min_lr: 0.1
+  mlp_clip_sigmas: 12.0
+  mlp_mult: 4.0
+  model_dim: 512
+  model_path: models/20260429_093153-TE-s42-b571c4f9.pt
+  muon_backend_steps: 5
+  muon_momentum: 0.97
+  muon_momentum_warmup_start: 0.92
+  muon_momentum_warmup_steps: 1500
+  muon_row_normalize: True
+  muon_wd: 0.095
+  num_heads: 8
+  num_kv_heads: 4
+  num_layers: 11
+  num_loops: 2
+  parallel_final_lane: mean
+  parallel_start_layer: 8
+  phased_ttt_num_phases: 3
+  phased_ttt_prefix_docs: 2000
+  qk_gain_init: 5.0
+  quantized_model_path: models/20260429_093153-TE-s42-b571c4f9.int6.ptz
+  rank: 0
+  raw_vocab_size: 7088
+  rope_base: 10000.0
+  rope_dims: 16
+  rope_train_seq_len: 2048
+  rope_yarn: False
+  run_id: 20260429_093153-TE-s42-b571c4f9
+  scalar_lr: 0.02
+  seed: 42
+  skip_gates_enabled: True
+  smear_gate_enabled: True
+  sparse_attn_gate_enabled: True
+  sparse_attn_gate_init_std: 0.0
+  sparse_attn_gate_scale: 1.0
+  tie_embeddings: True
+  tied_embed_init_std: 0.005
+  tied_embed_lr: 0.03
+  tokenizer_path: ./data/tokenizers/fineweb_billy_cap_inverse_freq_p100.model
+  train_batch_tokens: 786432
+  train_files: ./data/datasets/fineweb10B_billy_cap_inverse_freq_p100/fineweb_train_*.bin
+  train_log_every: 500
+  train_seq_len: 2048
+  ttt_batch_size: 64
+  ttt_beta1: 0.0
+  ttt_beta2: 0.999
+  ttt_chunk_size: 48
+  ttt_enabled: True
+  ttt_eval_batches: 
+  ttt_eval_seq_len: 2048
+  ttt_grad_steps: 1
+  ttt_k_lora: True
+  ttt_lora_lr: 0.0001
+  ttt_lora_rank: 96
+  ttt_mlp_lora: True
+  ttt_o_lora: True
+  ttt_optimizer: adam
+  ttt_weight_decay: 1.0
+  val_batch_tokens: 524288
+  val_bytes_files: ./data/datasets/fineweb10B_billy_cap_inverse_freq_p100/fineweb_val_bytes_*.bin
+  val_doc_fraction: 1.0
+  val_files: ./data/datasets/fineweb10B_billy_cap_inverse_freq_p100/fineweb_val_*.bin
+  val_loss_every: 4000
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  vocab_pad_multiple: 64
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).  vocab_size: 7104
+
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  warmdown_frac: 0.75
+  warmup_steps: 20
+  world_size: 8
+  xsa_last_n: 11
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+  VOCAB_SIZE=7104 > tokenizer vocab_size=7088; running with 16 padded id(s) (VOCAB_PAD_MULTIPLE alignment).
+train_shards: 141
+val_tokens: 44740608
+model_params:35388615
+gptq:reserving 0s, effective=599500ms
+warmup_cu_buckets:64,128,192,256 iters_each:3
+warmup_step: 1/20
+warmup_step: 2/20
+warmup_step: 3/20
+warmup_step: 4/20
+warmup_step: 5/20
+warmup_step: 6/20
+warmup_step: 10/20
+warmup_step: 20/20
+loop_warmup:enabled encoder:[0, 1, 2, 3, 4, 5, 3, 4] decoder:[5, 3, 4, 5, 6, 7, 8, 9, 10]
+loop_warmup_step: 1/20
+loop_warmup_step: 2/20
+loop_warmup_step: 3/20
+loop_warmup_step: 4/20
+loop_warmup_step: 5/20
+loop_warmup_step: 6/20
+loop_warmup_step: 10/20
+loop_warmup_step: 20/20
+0/20000 val_loss: 8.8686 val_bpb: 3.7888
+1/20000 train_loss: 8.8685 train_time: 0.0m tok/s: 12579707
+2/20000 train_loss: 12.5108 train_time: 0.0m tok/s: 11592837
+3/20000 train_loss: 11.0833 train_time: 0.0m tok/s: 10396047
+4/20000 train_loss: 9.1638 train_time: 0.0m tok/s: 9812678
+5/20000 train_loss: 8.2520 train_time: 0.0m tok/s: 9505691
+500/20000 train_loss: 2.9389 train_time: 0.8m tok/s: 8364496
+1000/20000 train_loss: 2.8966 train_time: 1.6m tok/s: 8346075
+1500/20000 train_loss: 2.9422 train_time: 2.4m tok/s: 8342546
+2000/20000 train_loss: 2.7852 train_time: 3.1m tok/s: 8340593
+layer_loop:enabled step:2225 frac:0.350 encoder:[0, 1, 2, 3, 4, 5, 3, 4] decoder:[5, 3, 4, 5, 6, 7, 8, 9, 10]
+2500/20000 train_loss: 2.7501 train_time: 4.4m tok/s: 7525246
+3000/20000 train_loss: 3.0235 train_time: 5.6m tok/s: 6991703
+3500/20000 train_loss: 2.6518 train_time: 6.8m tok/s: 6708968
+4000/20000 train_loss: 2.7538 train_time: 8.0m tok/s: 6557169
+4000/20000 val_loss: 2.6066 val_bpb: 1.1136
+4500/20000 train_loss: 2.5067 train_time: 9.2m tok/s: 6444130
+4863/20000 val_loss: 2.5334 val_bpb: 1.0823
+stopping_early: wallclock_cap train_time: 599645ms step: 4863/20000
+peak memory allocated: 41296 MiB reserved: 45866 MiB
+ema:applying EMA weights
+diagnostic pre-quantization post-ema val_loss:2.50869684 val_bpb:1.07175856 eval_time:6523ms
+Serialized model: 134305053 bytes
+Code size (uncompressed): 273318 bytes
+Code size (compressed): 31570 bytes
+GPTQ:collecting Hessians from calibration data...
+GPTQ:collected 67 Hessians in 3.5s
+Quantized weights:
+  gptq (int6): blocks.attn.c_k.weight, blocks.attn.c_q.weight, blocks.attn.c_v.weight, blocks.attn.proj.weight, blocks.mlp.fc.weight, blocks.mlp.proj.weight
+  gptq (int6)+lqer_asym: blocks.mlp.fc.weight
+  gptq (int7)+lqer_asym: tok_emb.weight
+  passthrough (float16): blocks.attn.attn_gate_w, blocks.attn.q_gain, blocks.attn_scale, blocks.mlp_scale, blocks.resid_mix, parallel_post_lambdas, parallel_resid_lambdas, skip_gates, skip_weights, smear_gate.weight, smear_lambda
+Serialized model quantized+brotli: 15619253 bytes
+Total submission size quantized+brotli: 15650823 bytes
+diagnostic quantized val_loss:2.53098948 val_bpb:1.08128235 eval_time:56062ms
+ttt_lora:warming up compile (random tokens, no val data)
+ttt_lora:compile warmup done (129.4s)
+
+beginning TTT eval timer
+ttt_phased: total_docs:49999 prefix_docs:2000 suffix_docs:47999 num_phases:3 boundaries:[666, 1333, 2000]
+ttp: b781/782 bl:2.3120 bb:1.0596 rl:2.3120 rb:1.0596 dl:16342-28571 gd:0
+ttpp: phase:1/3 pd:1103 gd:666 t:254.5s
+tttg: c1/104 lr:0.001000 t:0.3s
+tttg: c2/104 lr:0.001000 t:0.5s
+tttg: c3/104 lr:0.000999 t:0.6s
+tttg: c4/104 lr:0.000998 t:0.7s
+tttg: c5/104 lr:0.000996 t:0.8s
+tttg: c6/104 lr:0.000994 t:1.0s
+tttg: c7/104 lr:0.000992 t:1.1s
+tttg: c8/104 lr:0.000989 t:1.2s
+tttg: c9/104 lr:0.000985 t:1.3s
+tttg: c10/104 lr:0.000981 t:1.4s
+tttg: c11/104 lr:0.000977 t:1.6s
+tttg: c12/104 lr:0.000972 t:1.7s
+tttg: c13/104 lr:0.000967 t:1.8s
+tttg: c14/104 lr:0.000961 t:1.9s
+tttg: c15/104 lr:0.000955 t:2.1s
+tttg: c16/104 lr:0.000949 t:2.2s
+tttg: c17/104 lr:0.000942 t:2.3s
+tttg: c18/104 lr:0.000934 t:2.4s
+tttg: c19/104 lr:0.000927 t:2.6s
+tttg: c20/104 lr:0.000918 t:2.7s
+tttg: c21/104 lr:0.000910 t:2.8s
+tttg: c22/104 lr:0.000901 t:2.9s
+tttg: c23/104 lr:0.000892 t:3.0s
+tttg: c24/104 lr:0.000882 t:3.2s
+tttg: c25/104 lr:0.000872 t:3.3s
+tttg: c26/104 lr:0.000862 t:3.4s
+tttg: c27/104 lr:0.000851 t:3.5s
+tttg: c28/104 lr:0.000840 t:3.6s
+tttg: c29/104 lr:0.000828 t:3.8s
+tttg: c30/104 lr:0.000817 t:3.9s
+tttg: c31/104 lr:0.000805 t:4.0s
+tttg: c32/104 lr:0.000793 t:4.1s
+tttg: c33/104 lr:0.000780 t:4.3s
+tttg: c34/104 lr:0.000767 t:4.4s
+tttg: c35/104 lr:0.000754 t:4.5s
+tttg: c36/104 lr:0.000741 t:4.6s
+tttg: c37/104 lr:0.000728 t:4.8s
+tttg: c38/104 lr:0.000714 t:4.9s
+tttg: c39/104 lr:0.000700 t:5.0s
+tttg: c40/104 lr:0.000686 t:5.1s
+tttg: c41/104 lr:0.000672 t:5.2s
+tttg: c42/104 lr:0.000657 t:5.4s
+tttg: c43/104 lr:0.000643 t:5.5s
+tttg: c44/104 lr:0.000628 t:5.6s
+tttg: c45/104 lr:0.000613 t:5.7s
+tttg: c46/104 lr:0.000598 t:5.9s
+tttg: c47/104 lr:0.000583 t:6.0s
+tttg: c48/104 lr:0.000568 t:6.1s
+tttg: c49/104 lr:0.000553 t:6.2s
+tttg: c50/104 lr:0.000538 t:6.3s
+tttg: c51/104 lr:0.000523 t:6.5s
+tttg: c52/104 lr:0.000508 t:6.6s
+tttg: c53/104 lr:0.000492 t:6.7s
+tttg: c54/104 lr:0.000477 t:6.8s
+tttg: c55/104 lr:0.000462 t:7.0s
+tttg: c56/104 lr:0.000447 t:7.1s
+tttg: c57/104 lr:0.000432 t:7.2s
+tttg: c58/104 lr:0.000417 t:7.3s
+tttg: c59/104 lr:0.000402 t:7.5s
+tttg: c60/104 lr:0.000387 t:7.6s
+tttg: c61/104 lr:0.000372 t:7.7s
+tttg: c62/104 lr:0.000357 t:7.8s
+tttg: c63/104 lr:0.000343 t:8.0s
+tttg: c64/104 lr:0.000328 t:8.1s
+tttg: c65/104 lr:0.000314 t:8.2s
+tttg: c66/104 lr:0.000300 t:8.3s
+tttg: c67/104 lr:0.000286 t:8.4s
+tttg: c68/104 lr:0.000272 t:8.6s
+tttg: c69/104 lr:0.000259 t:8.7s
+tttg: c70/104 lr:0.000246 t:8.8s
+tttg: c71/104 lr:0.000233 t:8.9s
+tttg: c72/104 lr:0.000220 t:9.1s
+tttg: c73/104 lr:0.000207 t:9.2s
+tttg: c74/104 lr:0.000195 t:9.3s
+tttg: c75/104 lr:0.000183 t:9.4s
+tttg: c76/104 lr:0.000172 t:9.5s
+tttg: c77/104 lr:0.000160 t:9.7s
+tttg: c78/104 lr:0.000149 t:9.8s
+tttg: c79/104 lr:0.000138 t:9.9s
+tttg: c80/104 lr:0.000128 t:10.0s
+tttg: c81/104 lr:0.000118 t:10.1s
+tttg: c82/104 lr:0.000108 t:10.3s
+tttg: c83/104 lr:0.000099 t:10.4s
+tttg: c84/104 lr:0.000090 t:10.5s
+tttg: c85/104 lr:0.000082 t:10.6s
+tttg: c86/104 lr:0.000073 t:10.8s
+tttg: c87/104 lr:0.000066 t:10.9s
+tttg: c88/104 lr:0.000058 t:11.0s
+tttg: c89/104 lr:0.000051 t:11.1s
+tttg: c90/104 lr:0.000045 t:11.2s
+tttg: c91/104 lr:0.000039 t:11.4s
+tttg: c92/104 lr:0.000033 t:11.5s
+tttg: c93/104 lr:0.000028 t:11.6s
+tttg: c94/104 lr:0.000023 t:11.7s
+tttg: c95/104 lr:0.000019 t:11.9s
+tttg: c96/104 lr:0.000015 t:12.0s
+tttg: c97/104 lr:0.000011 t:12.1s
+tttg: c98/104 lr:0.000008 t:12.2s
+tttg: c99/104 lr:0.000006 t:12.4s
+tttg: c100/104 lr:0.000004 t:12.5s
+tttg: c101/104 lr:0.000002 t:12.6s
+tttg: c102/104 lr:0.000001 t:12.7s
+tttg: c103/104 lr:0.000000 t:12.8s
+ttpr: phase:1/3 t:270.8s
+ttp: b758/782 bl:2.5042 bb:1.0805 rl:2.3394 rb:1.0627 dl:3421-3502 gd:0
+ttpp: phase:2/3 pd:1807 gd:1333 t:437.4s
+tttg: c1/174 lr:0.001000 t:0.1s
+tttg: c2/174 lr:0.001000 t:0.3s
+tttg: c3/174 lr:0.001000 t:0.4s
+tttg: c4/174 lr:0.000999 t:0.5s
+tttg: c5/174 lr:0.000999 t:0.7s
+tttg: c6/174 lr:0.000998 t:0.8s
+tttg: c7/174 lr:0.000997 t:0.9s
+tttg: c8/174 lr:0.000996 t:1.1s
+tttg: c9/174 lr:0.000995 t:1.2s
+tttg: c10/174 lr:0.000993 t:1.3s
+tttg: c11/174 lr:0.000992 t:1.4s
+tttg: c12/174 lr:0.000990 t:1.5s
+tttg: c13/174 lr:0.000988 t:1.7s
+tttg: c14/174 lr:0.000986 t:1.8s
+tttg: c15/174 lr:0.000984 t:1.9s
+tttg: c16/174 lr:0.000982 t:2.1s
+tttg: c17/174 lr:0.000979 t:2.2s
+tttg: c18/174 lr:0.000976 t:2.3s
+tttg: c19/174 lr:0.000974 t:2.4s
+tttg: c20/174 lr:0.000971 t:2.6s
+tttg: c21/174 lr:0.000967 t:2.7s
+tttg: c22/174 lr:0.000964 t:2.8s
+tttg: c23/174 lr:0.000961 t:2.9s
+tttg: c24/174 lr:0.000957 t:3.0s
+tttg: c25/174 lr:0.000953 t:3.2s
+tttg: c26/174 lr:0.000949 t:3.3s
+tttg: c27/174 lr:0.000945 t:3.4s
+tttg: c28/174 lr:0.000941 t:3.5s
+tttg: c29/174 lr:0.000937 t:3.7s
+tttg: c30/174 lr:0.000932 t:3.8s
+tttg: c31/174 lr:0.000928 t:3.9s
+tttg: c32/174 lr:0.000923 t:4.0s
+tttg: c33/174 lr:0.000918 t:4.2s
+tttg: c34/174 lr:0.000913 t:4.3s
+tttg: c35/174 lr:0.000908 t:4.4s
+tttg: c36/174 lr:0.000902 t:4.5s
+tttg: c37/174 lr:0.000897 t:4.7s
+tttg: c38/174 lr:0.000891 t:4.8s
+tttg: c39/174 lr:0.000886 t:4.9s
+tttg: c40/174 lr:0.000880 t:5.0s
+tttg: c41/174 lr:0.000874 t:5.1s
+tttg: c42/174 lr:0.000868 t:5.3s
+tttg: c43/174 lr:0.000861 t:5.4s
+tttg: c44/174 lr:0.000855 t:5.5s
+tttg: c45/174 lr:0.000849 t:5.6s
+tttg: c46/174 lr:0.000842 t:5.8s
+tttg: c47/174 lr:0.000835 t:5.9s
+tttg: c48/174 lr:0.000829 t:6.0s
+tttg: c49/174 lr:0.000822 t:6.1s
+tttg: c50/174 lr:0.000815 t:6.3s
+tttg: c51/174 lr:0.000808 t:6.4s
+tttg: c52/174 lr:0.000800 t:6.5s
+tttg: c53/174 lr:0.000793 t:6.6s
+tttg: c54/174 lr:0.000786 t:6.8s
+tttg: c55/174 lr:0.000778 t:6.9s
+tttg: c56/174 lr:0.000771 t:7.0s
+tttg: c57/174 lr:0.000763 t:7.1s
+tttg: c58/174 lr:0.000755 t:7.3s
+tttg: c59/174 lr:0.000747 t:7.4s
+tttg: c60/174 lr:0.000739 t:7.5s
+tttg: c61/174 lr:0.000731 t:7.6s
+tttg: c62/174 lr:0.000723 t:7.7s
+tttg: c63/174 lr:0.000715 t:7.9s
+tttg: c64/174 lr:0.000707 t:8.0s
+tttg: c65/174 lr:0.000699 t:8.1s
+tttg: c66/174 lr:0.000690 t:8.2s
+tttg: c67/174 lr:0.000682 t:8.4s
+tttg: c68/174 lr:0.000673 t:8.5s
+tttg: c69/174 lr:0.000665 t:8.6s
+tttg: c70/174 lr:0.000656 t:8.7s
+tttg: c71/174 lr:0.000648 t:8.8s
+tttg: c72/174 lr:0.000639 t:9.0s
+tttg: c73/174 lr:0.000630 t:9.1s
+tttg: c74/174 lr:0.000621 t:9.2s
+tttg: c75/174 lr:0.000613 t:9.3s
+tttg: c76/174 lr:0.000604 t:9.5s
+tttg: c77/174 lr:0.000595 t:9.6s
+tttg: c78/174 lr:0.000586 t:9.7s
+tttg: c79/174 lr:0.000577 t:9.8s
+tttg: c80/174 lr:0.000568 t:10.0s
+tttg: c81/174 lr:0.000559 t:10.1s
+tttg: c82/174 lr:0.000550 t:10.2s
+tttg: c83/174 lr:0.000541 t:10.3s
+tttg: c84/174 lr:0.000532 t:10.5s
+tttg: c85/174 lr:0.000523 t:10.6s
+tttg: c86/174 lr:0.000514 t:10.7s
+tttg: c87/174 lr:0.000505 t:10.8s
+tttg: c88/174 lr:0.000495 t:11.0s
+tttg: c89/174 lr:0.000486 t:11.1s
+tttg: c90/174 lr:0.000477 t:11.2s
+tttg: c91/174 lr:0.000468 t:11.4s
+tttg: c92/174 lr:0.000459 t:11.5s
+tttg: c93/174 lr:0.000450 t:11.6s
+tttg: c94/174 lr:0.000441 t:11.8s
+tttg: c95/174 lr:0.000432 t:11.9s
+tttg: c96/174 lr:0.000423 t:12.0s
+tttg: c97/174 lr:0.000414 t:12.1s
+tttg: c98/174 lr:0.000405 t:12.3s
+tttg: c99/174 lr:0.000396 t:12.4s
+tttg: c100/174 lr:0.000387 t:12.5s
+tttg: c101/174 lr:0.000379 t:12.6s
+tttg: c102/174 lr:0.000370 t:12.7s
+tttg: c103/174 lr:0.000361 t:12.8s
+tttg: c104/174 lr:0.000352 t:12.9s
+tttg: c105/174 lr:0.000344 t:13.0s
+tttg: c106/174 lr:0.000335 t:13.1s
+tttg: c107/174 lr:0.000327 t:13.2s
+tttg: c108/174 lr:0.000318 t:13.4s
+tttg: c109/174 lr:0.000310 t:13.5s
+tttg: c110/174 lr:0.000301 t:13.6s
+tttg: c111/174 lr:0.000293 t:13.7s
+tttg: c112/174 lr:0.000285 t:13.8s
+tttg: c113/174 lr:0.000277 t:14.0s
+tttg: c114/174 lr:0.000269 t:14.1s
+tttg: c115/174 lr:0.000261 t:14.2s
+tttg: c116/174 lr:0.000253 t:14.3s
+tttg: c117/174 lr:0.000245 t:14.5s
+tttg: c118/174 lr:0.000237 t:14.6s
+tttg: c119/174 lr:0.000229 t:14.7s
+tttg: c120/174 lr:0.000222 t:14.8s
+tttg: c121/174 lr:0.000214 t:14.9s
+tttg: c122/174 lr:0.000207 t:15.1s
+tttg: c123/174 lr:0.000200 t:15.2s
+tttg: c124/174 lr:0.000192 t:15.3s
+tttg: c125/174 lr:0.000185 t:15.4s
+tttg: c126/174 lr:0.000178 t:15.6s
+tttg: c127/174 lr:0.000171 t:15.7s
+tttg: c128/174 lr:0.000165 t:15.8s
+tttg: c129/174 lr:0.000158 t:15.9s
+tttg: c130/174 lr:0.000151 t:16.1s
+tttg: c131/174 lr:0.000145 t:16.2s
+tttg: c132/174 lr:0.000139 t:16.3s
+tttg: c133/174 lr:0.000132 t:16.5s
+tttg: c134/174 lr:0.000126 t:16.6s
+tttg: c135/174 lr:0.000120 t:16.7s
+tttg: c136/174 lr:0.000114 t:16.9s
+tttg: c137/174 lr:0.000109 t:17.0s
+tttg: c138/174 lr:0.000103 t:17.2s
+tttg: c139/174 lr:0.000098 t:17.3s
+tttg: c140/174 lr:0.000092 t:17.4s
+tttg: c141/174 lr:0.000087 t:17.5s
+tttg: c142/174 lr:0.000082 t:17.6s
+tttg: c143/174 lr:0.000077 t:17.8s
+tttg: c144/174 lr:0.000072 t:17.9s
+tttg: c145/174 lr:0.000068 t:18.0s
+tttg: c146/174 lr:0.000063 t:18.1s
+tttg: c147/174 lr:0.000059 t:18.3s
+tttg: c148/174 lr:0.000055 t:18.4s
+tttg: c149/174 lr:0.000051 t:18.6s
+tttg: c150/174 lr:0.000047 t:18.7s
+tttg: c151/174 lr:0.000043 t:18.9s
+tttg: c152/174 lr:0.000039 t:19.0s
+tttg: c153/174 lr:0.000036 t:19.1s
+tttg: c154/174 lr:0.000033 t:19.3s
+tttg: c155/174 lr:0.000029 t:19.4s
+tttg: c156/174 lr:0.000026 t:19.7s
+tttg: c157/174 lr:0.000024 t:19.8s
+tttg: c158/174 lr:0.000021 t:19.9s
+tttg: c159/174 lr:0.000018 t:20.0s
+tttg: c160/174 lr:0.000016 t:20.1s
+tttg: c161/174 lr:0.000014 t:20.3s
+tttg: c162/174 lr:0.000012 t:20.4s
+tttg: c163/174 lr:0.000010 t:20.5s
+tttg: c164/174 lr:0.000008 t:20.6s
+tttg: c165/174 lr:0.000007 t:20.7s
+tttg: c166/174 lr:0.000005 t:20.9s
+tttg: c167/174 lr:0.000004 t:21.0s
+tttg: c168/174 lr:0.000003 t:21.2s
+tttg: c169/174 lr:0.000002 t:21.4s
+tttg: c170/174 lr:0.000001 t:21.5s
+tttg: c171/174 lr:0.000001 t:21.6s
+tttg: c172/174 lr:0.000000 t:21.8s
+tttg: c173/174 lr:0.000000 t:22.0s
+ttpr: phase:2/3 t:463.5s
+ttp: b752/782 bl:2.5007 bb:1.0420 rl:2.3573 rb:1.0602 dl:3009-3070 gd:0
+ttpp: phase:3/3 pd:2511 gd:2000 t:479.4s
+tttg: c1/227 lr:0.001000 t:0.1s
+tttg: c2/227 lr:0.001000 t:0.2s
+tttg: c3/227 lr:0.001000 t:0.3s
+tttg: c4/227 lr:0.001000 t:0.4s
+tttg: c5/227 lr:0.000999 t:0.5s
+tttg: c6/227 lr:0.000999 t:0.6s
+tttg: c7/227 lr:0.000998 t:0.8s
+tttg: c8/227 lr:0.000998 t:0.9s
+tttg: c9/227 lr:0.000997 t:1.0s
+tttg: c10/227 lr:0.000996 t:1.1s
+tttg: c11/227 lr:0.000995 t:1.2s
+tttg: c12/227 lr:0.000994 t:1.3s
+tttg: c13/227 lr:0.000993 t:1.5s
+tttg: c14/227 lr:0.000992 t:1.6s
+tttg: c15/227 lr:0.000991 t:1.7s
+tttg: c16/227 lr:0.000989 t:1.8s
+tttg: c17/227 lr:0.000988 t:1.9s
+tttg: c18/227 lr:0.000986 t:2.0s
+tttg: c19/227 lr:0.000984 t:2.1s
+tttg: c20/227 lr:0.000983 t:2.2s
+tttg: c21/227 lr:0.000981 t:2.3s
+tttg: c22/227 lr:0.000979 t:2.4s
+tttg: c23/227 lr:0.000977 t:2.5s
+tttg: c24/227 lr:0.000975 t:2.6s
+tttg: c25/227 lr:0.000972 t:2.7s
+tttg: c26/227 lr:0.000970 t:2.8s
+tttg: c27/227 lr:0.000968 t:2.9s
+tttg: c28/227 lr:0.000965 t:3.0s
+tttg: c29/227 lr:0.000963 t:3.1s
+tttg: c30/227 lr:0.000960 t:3.2s
+tttg: c31/227 lr:0.000957 t:3.3s
+tttg: c32/227 lr:0.000954 t:3.4s
+tttg: c33/227 lr:0.000951 t:3.5s
+tttg: c34/227 lr:0.000948 t:3.6s
+tttg: c35/227 lr:0.000945 t:3.7s
+tttg: c36/227 lr:0.000942 t:3.8s
+tttg: c37/227 lr:0.000939 t:3.9s
+tttg: c38/227 lr:0.000935 t:4.0s
+tttg: c39/227 lr:0.000932 t:4.1s
+tttg: c40/227 lr:0.000928 t:4.2s
+tttg: c41/227 lr:0.000925 t:4.3s
+tttg: c42/227 lr:0.000921 t:4.3s
+tttg: c43/227 lr:0.000917 t:4.4s
+tttg: c44/227 lr:0.000913 t:4.5s
+tttg: c45/227 lr:0.000909 t:4.6s
+tttg: c46/227 lr:0.000905 t:4.7s
+tttg: c47/227 lr:0.000901 t:4.8s
+tttg: c48/227 lr:0.000897 t:4.9s
+tttg: c49/227 lr:0.000893 t:5.0s
+tttg: c50/227 lr:0.000888 t:5.1s
+tttg: c51/227 lr:0.000884 t:5.2s
+tttg: c52/227 lr:0.000880 t:5.3s
+tttg: c53/227 lr:0.000875 t:5.4s
+tttg: c54/227 lr:0.000870 t:5.5s
+tttg: c55/227 lr:0.000866 t:5.6s
+tttg: c56/227 lr:0.000861 t:5.6s
+tttg: c57/227 lr:0.000856 t:5.7s
+tttg: c58/227 lr:0.000851 t:5.8s
+tttg: c59/227 lr:0.000846 t:5.9s
+tttg: c60/227 lr:0.000841 t:6.0s
+tttg: c61/227 lr:0.000836 t:6.1s
+tttg: c62/227 lr:0.000831 t:6.2s
+tttg: c63/227 lr:0.000826 t:6.3s
+tttg: c64/227 lr:0.000820 t:6.4s
+tttg: c65/227 lr:0.000815 t:6.5s
+tttg: c66/227 lr:0.000809 t:6.6s
+tttg: c67/227 lr:0.000804 t:6.7s
+tttg: c68/227 lr:0.000798 t:6.8s
+tttg: c69/227 lr:0.000793 t:6.9s
+tttg: c70/227 lr:0.000787 t:7.0s
+tttg: c71/227 lr:0.000781 t:7.1s
+tttg: c72/227 lr:0.000776 t:7.2s
+tttg: c73/227 lr:0.000770 t:7.3s
+tttg: c74/227 lr:0.000764 t:7.4s
+tttg: c75/227 lr:0.000758 t:7.4s
+tttg: c76/227 lr:0.000752 t:7.5s
+tttg: c77/227 lr:0.000746 t:7.6s
+tttg: c78/227 lr:0.000740 t:7.7s
+tttg: c79/227 lr:0.000734 t:7.8s
+tttg: c80/227 lr:0.000728 t:7.9s
+tttg: c81/227 lr:0.000721 t:8.0s
+tttg: c82/227 lr:0.000715 t:8.1s
+tttg: c83/227 lr:0.000709 t:8.2s
+tttg: c84/227 lr:0.000703 t:8.3s
+tttg: c85/227 lr:0.000696 t:8.4s
+tttg: c86/227 lr:0.000690 t:8.5s
+tttg: c87/227 lr:0.000683 t:8.6s
+tttg: c88/227 lr:0.000677 t:8.7s
+tttg: c89/227 lr:0.000670 t:8.8s
+tttg: c90/227 lr:0.000664 t:8.9s
+tttg: c91/227 lr:0.000657 t:8.9s
+tttg: c92/227 lr:0.000651 t:9.0s
+tttg: c93/227 lr:0.000644 t:9.1s
+tttg: c94/227 lr:0.000637 t:9.2s
+tttg: c95/227 lr:0.000631 t:9.3s
+tttg: c96/227 lr:0.000624 t:9.4s
+tttg: c97/227 lr:0.000617 t:9.5s
+tttg: c98/227 lr:0.000610 t:9.6s
+tttg: c99/227 lr:0.000604 t:9.7s
+tttg: c100/227 lr:0.000597 t:9.8s
+tttg: c101/227 lr:0.000590 t:9.9s
+tttg: c102/227 lr:0.000583 t:9.9s
+tttg: c103/227 lr:0.000576 t:10.0s
+tttg: c104/227 lr:0.000569 t:10.1s
+tttg: c105/227 lr:0.000562 t:10.2s
+tttg: c106/227 lr:0.000555 t:10.3s
+tttg: c107/227 lr:0.000549 t:10.4s
+tttg: c108/227 lr:0.000542 t:10.4s
+tttg: c109/227 lr:0.000535 t:10.5s
+tttg: c110/227 lr:0.000528 t:10.6s
+tttg: c111/227 lr:0.000521 t:10.7s
+tttg: c112/227 lr:0.000514 t:10.8s
+tttg: c113/227 lr:0.000507 t:10.9s
+tttg: c114/227 lr:0.000500 t:11.0s
+tttg: c115/227 lr:0.000493 t:11.0s
+tttg: c116/227 lr:0.000486 t:11.1s
+tttg: c117/227 lr:0.000479 t:11.2s
+tttg: c118/227 lr:0.000472 t:11.3s
+tttg: c119/227 lr:0.000465 t:11.4s
+tttg: c120/227 lr:0.000458 t:11.5s
+tttg: c121/227 lr:0.000451 t:11.5s
+tttg: c122/227 lr:0.000445 t:11.6s
+tttg: c123/227 lr:0.000438 t:11.7s
+tttg: c124/227 lr:0.000431 t:11.8s
+tttg: c125/227 lr:0.000424 t:11.9s
+tttg: c126/227 lr:0.000417 t:12.0s
+tttg: c127/227 lr:0.000410 t:12.1s
+tttg: c128/227 lr:0.000403 t:12.2s
+tttg: c129/227 lr:0.000396 t:12.2s
+tttg: c130/227 lr:0.000390 t:12.3s
+tttg: c131/227 lr:0.000383 t:12.4s
+tttg: c132/227 lr:0.000376 t:12.5s
+tttg: c133/227 lr:0.000369 t:12.6s
+tttg: c134/227 lr:0.000363 t:12.7s
+tttg: c135/227 lr:0.000356 t:12.8s
+tttg: c136/227 lr:0.000349 t:12.9s
+tttg: c137/227 lr:0.000343 t:13.0s
+tttg: c138/227 lr:0.000336 t:13.1s
+tttg: c139/227 lr:0.000330 t:13.2s
+tttg: c140/227 lr:0.000323 t:13.3s
+tttg: c141/227 lr:0.000317 t:13.4s
+tttg: c142/227 lr:0.000310 t:13.5s
+tttg: c143/227 lr:0.000304 t:13.6s
+tttg: c144/227 lr:0.000297 t:13.8s
+tttg: c145/227 lr:0.000291 t:13.9s
+tttg: c146/227 lr:0.000285 t:14.0s
+tttg: c147/227 lr:0.000279 t:14.1s
+tttg: c148/227 lr:0.000272 t:14.2s
+tttg: c149/227 lr:0.000266 t:14.3s
+tttg: c150/227 lr:0.000260 t:14.4s
+tttg: c151/227 lr:0.000254 t:14.5s
+tttg: c152/227 lr:0.000248 t:14.6s
+tttg: c153/227 lr:0.000242 t:14.7s
+tttg: c154/227 lr:0.000236 t:14.9s
+tttg: c155/227 lr:0.000230 t:15.0s
+tttg: c156/227 lr:0.000224 t:15.1s
+tttg: c157/227 lr:0.000219 t:15.2s
+tttg: c158/227 lr:0.000213 t:15.3s
+tttg: c159/227 lr:0.000207 t:15.4s
+tttg: c160/227 lr:0.000202 t:15.5s
+tttg: c161/227 lr:0.000196 t:15.6s
+tttg: c162/227 lr:0.000191 t:15.7s
+tttg: c163/227 lr:0.000185 t:15.8s
+tttg: c164/227 lr:0.000180 t:15.9s
+tttg: c165/227 lr:0.000174 t:16.0s
+tttg: c166/227 lr:0.000169 t:16.1s
+tttg: c167/227 lr:0.000164 t:16.2s
+tttg: c168/227 lr:0.000159 t:16.3s
+tttg: c169/227 lr:0.000154 t:16.4s
+tttg: c170/227 lr:0.000149 t:16.5s
+tttg: c171/227 lr:0.000144 t:16.6s
+tttg: c172/227 lr:0.000139 t:16.7s
+tttg: c173/227 lr:0.000134 t:16.8s
+tttg: c174/227 lr:0.000130 t:16.9s
+tttg: c175/227 lr:0.000125 t:17.0s
+tttg: c176/227 lr:0.000120 t:17.1s
+tttg: c177/227 lr:0.000116 t:17.2s
+tttg: c178/227 lr:0.000112 t:17.3s
+tttg: c179/227 lr:0.000107 t:17.4s
+tttg: c180/227 lr:0.000103 t:17.5s
+tttg: c181/227 lr:0.000099 t:17.7s
+tttg: c182/227 lr:0.000095 t:17.8s
+tttg: c183/227 lr:0.000091 t:17.9s
+tttg: c184/227 lr:0.000087 t:18.0s
+tttg: c185/227 lr:0.000083 t:18.1s
+tttg: c186/227 lr:0.000079 t:18.2s
+tttg: c187/227 lr:0.000075 t:18.3s
+tttg: c188/227 lr:0.000072 t:18.4s
+tttg: c189/227 lr:0.000068 t:18.6s
+tttg: c190/227 lr:0.000065 t:18.7s
+tttg: c191/227 lr:0.000061 t:18.8s
+tttg: c192/227 lr:0.000058 t:18.9s
+tttg: c193/227 lr:0.000055 t:19.0s
+tttg: c194/227 lr:0.000052 t:19.1s
+tttg: c195/227 lr:0.000049 t:19.2s
+tttg: c196/227 lr:0.000046 t:19.3s
+tttg: c197/227 lr:0.000043 t:19.4s
+tttg: c198/227 lr:0.000040 t:19.5s
+tttg: c199/227 lr:0.000037 t:19.6s
+tttg: c200/227 lr:0.000035 t:19.7s
+tttg: c201/227 lr:0.000032 t:19.8s
+tttg: c202/227 lr:0.000030 t:19.9s
+tttg: c203/227 lr:0.000028 t:20.0s
+tttg: c204/227 lr:0.000025 t:20.1s
+tttg: c205/227 lr:0.000023 t:20.2s
+tttg: c206/227 lr:0.000021 t:20.4s
+tttg: c207/227 lr:0.000019 t:20.4s
+tttg: c208/227 lr:0.000017 t:20.5s
+tttg: c209/227 lr:0.000016 t:20.6s
+tttg: c210/227 lr:0.000014 t:20.7s
+tttg: c211/227 lr:0.000012 t:20.8s
+tttg: c212/227 lr:0.000011 t:20.9s
+tttg: c213/227 lr:0.000009 t:21.0s
+tttg: c214/227 lr:0.000008 t:21.1s
+tttg: c215/227 lr:0.000007 t:21.1s
+tttg: c216/227 lr:0.000006 t:21.2s
+tttg: c217/227 lr:0.000005 t:21.3s
+tttg: c218/227 lr:0.000004 t:21.4s
+tttg: c219/227 lr:0.000003 t:21.5s
+tttg: c220/227 lr:0.000002 t:21.6s
+tttg: c221/227 lr:0.000002 t:21.7s
+tttg: c222/227 lr:0.000001 t:21.8s
+tttg: c223/227 lr:0.000001 t:21.8s
+tttg: c224/227 lr:0.000000 t:21.9s
+tttg: c225/227 lr:0.000000 t:22.0s
+tttg: c226/227 lr:0.000000 t:22.1s
+ttpr: phase:3/3 t:509.0s
+ttp: b738/782 bl:2.5554 bb:1.0642 rl:2.3735 rb:1.0606 dl:2413-2447 gd:1
+ttp: b732/782 bl:2.4103 bb:1.0192 rl:2.3761 rb:1.0575 dl:2257-2282 gd:1
+ttp: b723/782 bl:2.4153 bb:1.0403 rl:2.3784 rb:1.0564 dl:2047-2067 gd:1
+ttp: b712/782 bl:2.4556 bb:1.0615 rl:2.3824 rb:1.0567 dl:1853-1868 gd:1
+ttp: b710/782 bl:2.5401 bb:1.0571 rl:2.3901 rb:1.0567 dl:1827-1839 gd:1
+ttp: b697/782 bl:2.5107 bb:1.0646 rl:2.3952 rb:1.0571 dl:1674-1685 gd:1
+ttp: b688/782 bl:2.5315 bb:1.0626 rl:2.4005 rb:1.0573 dl:1583-1594 gd:1
+ttp: b682/782 bl:2.4865 bb:1.0451 rl:2.4036 rb:1.0568 dl:1529-1537 gd:1
+ttp: b677/782 bl:2.5232 bb:1.0769 rl:2.4076 rb:1.0575 dl:1488-1496 gd:1
+ttp: b664/782 bl:2.5033 bb:1.0715 rl:2.4106 rb:1.0580 dl:1395-1402 gd:1
+ttp: b657/782 bl:2.4721 bb:1.0484 rl:2.4123 rb:1.0577 dl:1350-1355 gd:1
+ttp: b648/782 bl:2.5279 bb:1.0455 rl:2.4155 rb:1.0573 dl:1297-1303 gd:1
+ttp: b639/782 bl:2.4996 bb:1.0392 rl:2.4176 rb:1.0568 dl:1245-1250 gd:1
+ttp: b631/782 bl:2.5458 bb:1.0407 rl:2.4206 rb:1.0564 dl:1201-1206 gd:1
+ttp: b623/782 bl:2.4534 bb:1.0223 rl:2.4214 rb:1.0556 dl:1160-1166 gd:1
+ttp: b615/782 bl:2.5355 bb:1.0395 rl:2.4238 rb:1.0553 dl:1121-1126 gd:1
+ttp: b608/782 bl:2.5351 bb:1.0780 rl:2.4260 rb:1.0557 dl:1092-1096 gd:1
+ttp: b605/782 bl:2.5542 bb:1.0634 rl:2.4286 rb:1.0559 dl:1080-1084 gd:1
+ttp: b597/782 bl:2.4844 bb:1.0411 rl:2.4296 rb:1.0556 dl:1046-1050 gd:1
+ttp: b589/782 bl:2.5112 bb:1.0739 rl:2.4311 rb:1.0559 dl:1015-1018 gd:1
+ttp: b577/782 bl:2.5316 bb:1.0544 rl:2.4327 rb:1.0559 dl:970-973 gd:1
+ttp: b569/782 bl:2.5172 bb:1.0502 rl:2.4341 rb:1.0558 dl:941-945 gd:1
+ttp: b562/782 bl:2.5337 bb:1.0547 rl:2.4356 rb:1.0558 dl:919-921 gd:1
+ttp: b553/782 bl:2.5121 bb:1.0506 rl:2.4367 rb:1.0557 dl:890-893 gd:1
+ttp: b545/782 bl:2.5162 bb:1.0516 rl:2.4379 rb:1.0557 dl:866-869 gd:1
+ttp: b535/782 bl:2.4837 bb:1.0617 rl:2.4385 rb:1.0557 dl:836-839 gd:1
+ttp: b527/782 bl:2.4960 bb:1.0299 rl:2.4392 rb:1.0554 dl:816-819 gd:1
+ttp: b519/782 bl:2.5029 bb:1.0266 rl:2.4400 rb:1.0550 dl:795-797 gd:1
+ttp: b511/782 bl:2.4800 bb:1.0420 rl:2.4405 rb:1.0549 dl:773-775 gd:1
+ttp: b503/782 bl:2.5128 bb:1.0474 rl:2.4413 rb:1.0548 dl:752-754 gd:1
+ttp: b496/782 bl:2.4805 bb:1.0226 rl:2.4417 rb:1.0544 dl:734-736 gd:1
+ttp: b488/782 bl:2.5137 bb:1.0622 rl:2.4425 rb:1.0545 dl:716-719 gd:1
+ttp: b484/782 bl:2.5882 bb:1.0924 rl:2.4440 rb:1.0549 dl:708-710 gd:1
+ttp: b476/782 bl:2.5133 bb:1.0558 rl:2.4447 rb:1.0549 dl:690-691 gd:1
+ttp: b468/782 bl:2.4581 bb:1.0234 rl:2.4449 rb:1.0546 dl:672-674 gd:1
+ttp: b455/782 bl:2.4876 bb:1.0140 rl:2.4452 rb:1.0542 dl:647-649 gd:1
+ttp: b447/782 bl:2.5958 bb:1.0670 rl:2.4466 rb:1.0543 dl:630-632 gd:1
+ttp: b439/782 bl:2.4877 bb:1.0570 rl:2.4470 rb:1.0543 dl:614-616 gd:1
+ttp: b433/782 bl:2.5204 bb:1.0572 rl:2.4476 rb:1.0544 dl:602-603 gd:1
+ttp: b425/782 bl:2.5247 bb:1.0688 rl:2.4482 rb:1.0545 dl:587-589 gd:1
+ttp: b417/782 bl:2.4995 bb:1.0530 rl:2.4486 rb:1.0545 dl:572-574 gd:1
+ttp: b412/782 bl:2.5369 bb:1.0637 rl:2.4493 rb:1.0545 dl:563-565 gd:1
+ttp: b404/782 bl:2.4981 bb:1.0603 rl:2.4496 rb:1.0546 dl:549-552 gd:1
+ttp: b396/782 bl:2.4909 bb:1.0594 rl:2.4499 rb:1.0546 dl:535-537 gd:1
+ttp: b387/782 bl:2.5803 bb:1.1018 rl:2.4508 rb:1.0549 dl:521-523 gd:1
+ttp: b379/782 bl:2.5101 bb:1.0440 rl:2.4512 rb:1.0549 dl:508-510 gd:1
+ttp: b369/782 bl:2.4845 bb:1.0530 rl:2.4515 rb:1.0549 dl:492-494 gd:1
+ttp: b361/782 bl:2.5493 bb:1.0922 rl:2.4521 rb:1.0551 dl:480-481 gd:1
+ttp: b358/782 bl:2.4838 bb:1.0487 rl:2.4523 rb:1.0550 dl:476-477 gd:1
+ttp: b350/782 bl:2.6235 bb:1.1182 rl:2.4533 rb:1.0554 dl:463-465 gd:1
+ttp: b342/782 bl:2.5296 bb:1.0977 rl:2.4537 rb:1.0557 dl:452-454 gd:1
+ttp: b334/782 bl:2.4922 bb:1.0671 rl:2.4539 rb:1.0557 dl:440-442 gd:1
+ttp: b326/782 bl:2.5027 bb:1.1014 rl:2.4542 rb:1.0560 dl:429-430 gd:1
+ttp: b317/782 bl:2.4791 bb:1.0655 rl:2.4543 rb:1.0560 dl:416-417 gd:1
+ttp: b309/782 bl:2.5758 bb:1.0809 rl:2.4550 rb:1.0562 dl:404-406 gd:1
+ttp: b300/782 bl:2.6314 bb:1.1071 rl:2.4558 rb:1.0564 dl:392-393 gd:1
+ttp: b292/782 bl:2.5037 bb:1.0828 rl:2.4560 rb:1.0565 dl:381-383 gd:1
+ttp: b284/782 bl:2.5379 bb:1.0766 rl:2.4564 rb:1.0566 dl:371-372 gd:1
+ttp: b275/782 bl:2.5854 bb:1.1101 rl:2.4570 rb:1.0569 dl:360-361 gd:1
+ttp: b266/782 bl:2.5852 bb:1.0994 rl:2.4575 rb:1.0571 dl:348-350 gd:1
+ttp: b258/782 bl:2.6360 bb:1.1212 rl:2.4583 rb:1.0573 dl:339-340 gd:1
+ttp: b249/782 bl:2.5502 bb:1.1404 rl:2.4587 rb:1.0576 dl:328-329 gd:1
+ttp: b241/782 bl:2.5477 bb:1.1220 rl:2.4590 rb:1.0579 dl:319-320 gd:1
+ttp: b232/782 bl:2.5532 bb:1.0831 rl:2.4593 rb:1.0580 dl:309-310 gd:1
+ttp: b224/782 bl:2.5014 bb:1.0744 rl:2.4595 rb:1.0580 dl:300-301 gd:1
+ttp: b216/782 bl:2.4939 bb:1.1076 rl:2.4596 rb:1.0582 dl:291-292 gd:1
+ttp: b209/782 bl:2.5897 bb:1.1166 rl:2.4601 rb:1.0584 dl:285-285 gd:1
+ttp: b200/782 bl:2.5507 bb:1.1196 rl:2.4604 rb:1.0586 dl:275-276 gd:1
+ttp: b192/782 bl:2.6094 bb:1.1331 rl:2.4608 rb:1.0588 dl:267-268 gd:1
+ttp: b183/782 bl:2.5965 bb:1.1358 rl:2.4612 rb:1.0591 dl:259-260 gd:1
+ttp: b176/782 bl:2.5991 bb:1.1253 rl:2.4617 rb:1.0593 dl:252-253 gd:1
+ttp: b168/782 bl:2.6408 bb:1.1566 rl:2.4622 rb:1.0595 dl:244-245 gd:1
+ttp: b160/782 bl:2.4933 bb:1.1302 rl:2.4623 rb:1.0597 dl:237-238 gd:1
+ttp: b152/782 bl:2.6165 bb:1.1274 rl:2.4627 rb:1.0599 dl:230-231 gd:1
+ttp: b145/782 bl:2.6427 bb:1.1166 rl:2.4631 rb:1.0601 dl:224-224 gd:1
+ttp: b137/782 bl:2.5817 bb:1.1379 rl:2.4634 rb:1.0603 dl:217-217 gd:1
+ttp: b129/782 bl:2.6567 bb:1.1823 rl:2.4639 rb:1.0605 dl:210-210 gd:1
+ttp: b120/782 bl:2.6499 bb:1.1575 rl:2.4643 rb:1.0608 dl:202-203 gd:1
+ttp: b112/782 bl:2.6635 bb:1.1779 rl:2.4648 rb:1.0610 dl:196-196 gd:1
+ttp: b105/782 bl:2.6590 bb:1.1542 rl:2.4652 rb:1.0612 dl:190-190 gd:1
+ttp: b97/782 bl:2.6581 bb:1.1907 rl:2.4656 rb:1.0615 dl:183-183 gd:1
+ttp: b86/782 bl:2.6485 bb:1.1964 rl:2.4660 rb:1.0617 dl:174-175 gd:1
+ttp: b80/782 bl:2.6276 bb:1.1750 rl:2.4663 rb:1.0619 dl:169-169 gd:1
+ttp: b71/782 bl:2.7578 bb:1.2308 rl:2.4668 rb:1.0622 dl:161-162 gd:1
+ttp: b62/782 bl:2.6373 bb:1.1871 rl:2.4671 rb:1.0625 dl:153-155 gd:1
+ttp: b55/782 bl:2.6319 bb:1.1595 rl:2.4674 rb:1.0626 dl:147-148 gd:1
+ttp: b47/782 bl:2.7580 bb:1.2401 rl:2.4679 rb:1.0629 dl:140-141 gd:1
+ttp: b40/782 bl:2.7503 bb:1.2153 rl:2.4683 rb:1.0631 dl:134-134 gd:1
+ttp: b31/782 bl:2.7966 bb:1.2728 rl:2.4688 rb:1.0634 dl:125-126 gd:1
+ttp: b23/782 bl:2.7739 bb:1.2004 rl:2.4692 rb:1.0636 dl:117-118 gd:1
+ttp: b15/782 bl:2.7641 bb:1.1944 rl:2.4695 rb:1.0637 dl:108-109 gd:1
+ttp: b7/782 bl:2.7270 bb:1.1944 rl:2.4698 rb:1.0639 dl:95-97 gd:1
+ttp: b1/782 bl:3.0082 bb:1.2216 rl:2.4702 rb:1.0640 dl:54-78 gd:1
+quantized_ttt_phased val_loss:2.50224697 val_bpb:1.06909218 eval_time:605473ms
+total_eval_time:605.5s
